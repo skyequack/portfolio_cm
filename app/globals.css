@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --charcoal-black: #121417;
+  --royal-green: #0F6B4A;
+  --warm-sand: #E8DDC8;
+  
+  /* Secondary Colors */
+  --champagne-gold: #C9A24D;
+  --soft-stone: #D6D3CD;
+  --cool-slate: #7A7F85;
+  --ivory-white: #F7F6F2;
+  
+  /* Functional Colors */
+  --deep-green: #0B5A3E;
+  --muted-gold: #B8933F;
+  --light-divider: #E1D6BF;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Color System */
+  --color-charcoal: var(--charcoal-black);
+  --color-royal-green: var(--royal-green);
+  --color-sand: var(--warm-sand);
+  --color-gold: var(--champagne-gold);
+  --color-stone: var(--soft-stone);
+  --color-slate: var(--cool-slate);
+  --color-ivory: var(--ivory-white);
+  --color-deep-green: var(--deep-green);
+  --color-muted-gold: var(--muted-gold);
+  --color-divider: var(--light-divider);
+  
+  /* Typography */
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
+  --font-sans-ar: var(--font-body-ar);
+  --font-serif-ar: var(--font-heading-ar);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ivory-white);
+  color: var(--charcoal-black);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* RTL Support */
+[dir="rtl"] body {
+  font-family: var(--font-sans-ar), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 1.05em; /* Slightly larger for Arabic */
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: var(--font-serif-ar), serif;
+  letter-spacing: 0;
+  font-size: 1.1em; /* Larger Arabic headings */
+}
+
+/* Arabic body text sizing */
+[dir="rtl"] p,
+[dir="rtl"] li,
+[dir="rtl"] span {
+  font-size: 1.05em;
+}
+
+/* Smooth Transitions */
+a, button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth scroll offset for fixed header */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Selection */
+::selection {
+  background: var(--champagne-gold);
+  color: var(--charcoal-black);
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 6rem;
+  }
+}
+
+/* Fade-in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Utility for staggered animations */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
 }
