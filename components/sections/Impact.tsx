@@ -1,6 +1,6 @@
 'use client';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 
@@ -17,8 +17,7 @@ interface ImpactDictionary {
   [key: string]: string | CaseData;
 }
 
-export default function Impact() {
-  const { dictionary } = useLanguage();
+export default function Impact({ dictionary }: { dictionary: Dictionary }) {
   const impact = dictionary.impact as ImpactDictionary;
 
   const cases = [

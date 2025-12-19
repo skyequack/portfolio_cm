@@ -1,11 +1,10 @@
 'use client';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
 import Divider from '@/components/ui/Divider';
 
-export default function About() {
-  const { dictionary } = useLanguage();
+export default function About({ dictionary }: { dictionary: Dictionary }) {
   const about = dictionary.about as { [key: string]: string };
 
   return (

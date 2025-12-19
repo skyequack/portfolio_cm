@@ -1,9 +1,7 @@
-'use client';
+import Link from 'next/link';
+import type { Locale, Dictionary } from '@/lib/i18n/types';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
-
-export default function Header() {
-  const { locale, dictionary, toggleLanguage } = useLanguage();
+export default function Header({ locale, dictionary }: { locale: Locale; dictionary: Dictionary }) {
   const nav = dictionary.nav as { [key: string]: string };
 
   const scrollToSection = (id: string) => {
@@ -12,6 +10,8 @@ export default function Header() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const toggleLocale = locale === 'en' ? 'ar' : 'en';
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-divider/20">
@@ -59,13 +59,13 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Language Toggle */}
-          <button
-            onClick={toggleLanguage}
+          {/* Language Toggle - Now a Link */}
+          <Link
+            href={`/${toggleLocale}`}
             className="flex items-center gap-2 px-4 py-2 rounded-sm bg-royal-green hover:bg-deep-green text-ivory transition-all text-sm font-medium"
           >
             <span>{locale === 'en' ? 'العربية' : 'EN'}</span>
-          </button>
+          </Link>
         </div>
       </nav>
     </header>

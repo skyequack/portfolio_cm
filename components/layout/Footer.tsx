@@ -1,9 +1,6 @@
-'use client';
+import type { Locale } from '@/lib/i18n/types';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
-
-export default function Footer() {
-  const { locale } = useLanguage();
+export default function Footer({ locale }: { locale: Locale }) {
   const year = new Date().getFullYear();
 
   return (

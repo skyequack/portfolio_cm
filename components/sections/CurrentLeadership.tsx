@@ -1,11 +1,10 @@
 'use client';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 
-export default function CurrentLeadership() {
-  const { dictionary } = useLanguage();
+export default function CurrentLeadership({ dictionary }: { dictionary: Dictionary }) {
   const current = dictionary.current as { [key: string]: string };
 
   return (

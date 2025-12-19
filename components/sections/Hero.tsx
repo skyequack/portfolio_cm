@@ -1,10 +1,9 @@
 'use client';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import type { Dictionary } from '@/lib/i18n/types';
 import Button from '@/components/ui/Button';
 
-export default function Hero() {
-  const { dictionary } = useLanguage();
+export default function Hero({ dictionary }: { dictionary: Dictionary }) {
   const hero = dictionary.hero as { [key: string]: string };
 
   const scrollToAbout = () => {

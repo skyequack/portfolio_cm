@@ -1,10 +1,9 @@
 'use client';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
 
-export default function Pillars() {
-  const { dictionary } = useLanguage();
+export default function Pillars({ dictionary }: { dictionary: Dictionary }) {
   const pillars = dictionary.pillars as { [key: string]: string };
 
   const pillarsList = [

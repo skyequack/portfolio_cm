@@ -1,12 +1,11 @@
 'use client';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Divider from '@/components/ui/Divider';
 
-export default function Experience() {
-  const { dictionary } = useLanguage();
+export default function Experience({ dictionary }: { dictionary: Dictionary }) {
   const experience = dictionary.experience as { title: string; items: string[] };
   const education = dictionary.education as { [key: string]: string };
 

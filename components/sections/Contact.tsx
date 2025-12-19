@@ -1,10 +1,9 @@
 'use client';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
 
-export default function Contact() {
-  const { dictionary } = useLanguage();
+export default function Contact({ dictionary }: { dictionary: Dictionary }) {
   const contact = dictionary.contact as { [key: string]: string };
 
   return (

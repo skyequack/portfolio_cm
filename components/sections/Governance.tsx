@@ -1,10 +1,9 @@
 'use client';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
 
-export default function Governance() {
-  const { dictionary } = useLanguage();
+export default function Governance({ dictionary }: { dictionary: Dictionary }) {
   const boards = dictionary.boards as { [key: string]: string };
 
   return (
