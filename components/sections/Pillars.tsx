@@ -75,6 +75,8 @@ export default function Pillars() {
             </div>
           ))}
         </div>
+        {/* Bottom gold divider */}
+        <Divider className="mt-16 w-full" />
       </div>
     </Section>
   );
