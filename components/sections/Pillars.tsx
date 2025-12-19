@@ -34,9 +34,9 @@ export default function Pillars() {
 
   return (
     <Section id="pillars" background="light" spacing="default" className="scroll-mt-20">
-      <div className="max-w-6xl mx-auto! pt-5!">
+      <div className="max-w-6xl mx-auto pt-5">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-5! text-center">
+        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-5 text-center">
           {pillars.title}
         </h2>
         

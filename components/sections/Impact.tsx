@@ -53,14 +53,14 @@ export default function Impact() {
     <Section id="impact" background="light" spacing="relaxed" className="scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-4 text-center pt-5! md:pt-12">
+        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-4 text-center pt-5 md:pt-12">
           {impact.title}
         </h2>
         
         <Divider className="mb-16 max-w-24 mx-auto" />
 
         {/* Case Stories */}
-        <div className="space-y-2! md:space-y-2! pb-12!">
+        <div className="space-y-2 md:space-y-2 pb-12">
           {cases.map(({ key, data}, index) => (
             <div key={key} className="relative">
               {/* Case Number - Positioned relative to container */}
@@ -68,7 +68,7 @@ export default function Impact() {
                 {index + 1}
               </div>
 
-                <Card className="pl-5! pr-8! pt-5! ">
+                <Card className="pl-5 pr-8 pt-5 ">
                 <div className="space-y-4">
                   {/* Company Name */}
                   <h3 className="text-2xl font-serif text-charcoal">
