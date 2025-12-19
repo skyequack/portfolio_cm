@@ -1,33 +1,77 @@
 'use client';
 
-import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
+import Divider from '@/components/ui/Divider';
 
-export default function Pillars({ dictionary }: { dictionary: Dictionary }) {
-  const pillars = dictionary.pillars as { [key: string]: string };
+export default function Pillars() {
+  const pillars = {
+    title: 'Leadership Pillars',
+    turnaround: 'Turnaround Leadership',
+    governance: 'Board & Governance Excellence',
+    investment: 'Strategic Investment & Capital Discipline'
+  };
 
   const pillarsList = [
-    { key: 'turnaround', icon: '↻' },
-    { key: 'governance', icon: '⚖' },
-    { key: 'investment', icon: '◆' }
+    {
+      key: 'turnaround',
+      title: pillars.turnaround,
+      icon: '↻',
+      description: 'Transforming organizations through strategic restructuring, cost discipline, and operational excellence.'
+    },
+    {
+      key: 'governance',
+      title: pillars.governance,
+      icon: '⚖',
+      description: 'Building robust governance frameworks and steering organizations with institutional discipline.'
+    },
+    {
+      key: 'investment',
+      title: pillars.investment,
+      icon: '◆',
+      description: 'Allocating capital strategically with rigorous oversight and a long-term value creation mindset.'
+    }
   ];
 
   return (
-    <Section background="sand" className="border-t border-b border-divider">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-serif text-center text-charcoal mb-16">
+    <Section id="pillars" background="light" spacing="default" className="scroll-mt-20">
+      <div className="max-w-6xl mx-auto! pt-5!">
+        {/* Section Title */}
+        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-5! text-center">
           {pillars.title}
         </h2>
+        
+        <Divider className="mb-16 max-w-24 mx-auto" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {pillarsList.map(({ key, icon }) => (
-            <div key={key} className="text-center group">
-              <div className="text-5xl text-gold mb-6 group-hover:scale-110 transition-transform">
-                {icon}
+        {/* Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {pillarsList.map((pillar, index) => (
+            <div 
+              key={pillar.key}
+              className="group relative bg-ivory border border-divider rounded-sm p-8 hover:border-gold/40 transition-all duration-300 hover:shadow-lg"
+            >
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gold/0 group-hover:border-gold/40 transition-all" />
+              
+              {/* Number */}
+              <div className="text-gold/20 font-serif text-5xl mb-4 leading-none">
+                {(index + 1).toString().padStart(2, '0')}
               </div>
-              <h3 className="text-xl font-serif text-charcoal leading-snug">
-                {pillars[key]}
+
+              {/* Title */}
+              <h3 className="text-xl font-serif text-charcoal mb-4 leading-tight">
+                {pillar.title}
               </h3>
+
+              {/* Divider */}
+              <div className="w-12 h-px bg-gold/30 mb-4" />
+
+              {/* Description */}
+              <p className="text-slate text-sm leading-relaxed">
+                {pillar.description}
+              </p>
+
+              {/* Bottom accent */}
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gold/0 group-hover:border-gold/40 transition-all" />
             </div>
           ))}
         </div>

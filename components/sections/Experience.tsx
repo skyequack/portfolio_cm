@@ -1,63 +1,53 @@
 'use client';
 
-import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
-import Card from '@/components/ui/Card';
 import Divider from '@/components/ui/Divider';
 
-export default function Experience({ dictionary }: { dictionary: Dictionary }) {
-  const experience = dictionary.experience as { title: string; items: string[] };
-  const education = dictionary.education as { [key: string]: string };
+export default function Experience() {
+  const experience = {
+    title: 'Professional Experience',
+    items: [
+      'CEO & Owner – Rashid Saad Al Rashid & Sons Company (2006–Present)',
+      'Chairman / Board Member – Packaging Products Company',
+      'Chairman – Golden Chicken Company',
+      'CEO – Darajat Contracting Company',
+      'Managing Director & Board Member – Razin Trading Company',
+      'Board & Committee Roles – Healthcare, contracting, manufacturing, real estate, technology, food, and banking sectors.'
+    ]
+  };
 
   return (
-    <Section background="light">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Experience */}
-          <div>
-            <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-8">
-              {experience.title}
-            </h2>
-            <Divider className="mb-8" />
-            <ul className="space-y-4">
-              {experience.items.map((item, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <span className="text-gold text-xl mt-1">▸</span>
-                  <span className="text-charcoal/80 leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <Section id="experience" background="light" spacing="default" className="scroll-mt-20">
+      <div className="max-w-4xl mx-auto">
+        {/* Section Title */}
+        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-4 text-center">
+          {experience.title}
+        </h2>
+        
+        <Divider className="mb-12 max-w-24 mx-auto" />
 
-          {/* Education */}
-          <div>
-            <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-8">
-              {education.title}
-            </h2>
-            <Divider className="mb-8" />
-            
-            <div className="space-y-6">
-              <Card className="bg-sand border-divider">
-                <h3 className="font-serif text-lg text-charcoal mb-2">
-                  {education.degree}
-                </h3>
-                <p className="text-slate text-sm">{education.university}</p>
-              </Card>
+        {/* Timeline */}
+        <div className="relative space-y-6">
+          {/* Vertical line */}
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-linear-to-b from-gold via-gold/50 to-gold/20 hidden md:block" />
 
-              <Card className="bg-sand border-divider">
-                <h3 className="font-serif text-lg text-charcoal mb-2">
-                  {education.diploma}
-                </h3>
-                <p className="text-slate text-sm">{education.institute}</p>
-              </Card>
+          {experience.items.map((item: string, index: number) => (
+            <div key={index} className="relative flex gap-6 group">
+              {/* Timeline dot */}
+              <div className="hidden md:flex items-center justify-center shrink-0">
+                <div className="w-3 h-3 bg-gold rotate-45 group-hover:scale-125 transition-transform" />
+              </div>
 
-              <div className="pt-4">
-                <p className="text-sm text-charcoal/70 leading-relaxed">
-                  {education.certifications}
-                </p>
+              {/* Content */}
+              <div className="flex-1 pb-6">
+                <div className="bg-ivory/50 border border-divider rounded-sm p-6 group-hover:bg-ivory group-hover:border-gold/30 transition-all">
+                  <p className="text-slate text-base leading-relaxed">
+                    {item}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </Section>

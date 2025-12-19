@@ -1,35 +1,54 @@
 'use client';
 
-import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
+import Divider from '@/components/ui/Divider';
 
-export default function Governance({ dictionary }: { dictionary: Dictionary }) {
-  const boards = dictionary.boards as { [key: string]: string };
+export default function Governance() {
+  const boards = {
+    title: 'Boards & Governance',
+    description:
+      'Serving as Chairman, Vice Chairman, Board Member, and Audit or Executive Committee member across leading organizations in healthcare, manufacturing, contracting, real estate, food production, technology investments, and financial services. Recognized for building governance frameworks, steering major projects, and ensuring disciplined oversight.'
+  };
+
+  const sectors = [
+    'Healthcare',
+    'Manufacturing',
+    'Contracting',
+    'Real Estate',
+    'Food Production',
+    'Technology Investments',
+    'Financial Services'
+  ];
 
   return (
-    <Section id="governance" background="sand">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-serif text-charcoal mb-4">
+    <Section id="governance" background="dark" spacing="default" className="scroll-mt-20">
+      <div className="max-w-5xl mx-auto">
+        {/* Section Title */}
+        <h2 className="text-3xl md:text-4xl font-serif text-gold mb-4 text-center">
           {boards.title}
         </h2>
         
-        <div className="w-24 h-px bg-gold mx-auto mb-12" />
+        <Divider className="mb-12 max-w-24 mx-auto" />
 
-        <p className="text-lg leading-relaxed text-charcoal/80">
+        {/* Description */}
+        <p className="text-lg md:text-xl text-ivory/90 leading-relaxed text-center max-w-3xl mx-auto mb-12">
           {boards.description}
         </p>
 
-        {/* Icon Grid */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {['Healthcare', 'Manufacturing', 'Real Estate', 'Financial Services', 
-            'Technology', 'Food Production', 'Contracting', 'Investment'].map((sector, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-3">
-                <div className="w-6 h-6 border-2 border-gold rounded-sm" />
-              </div>
-              <span className="text-xs text-slate uppercase tracking-wide">
+        {/* Sectors Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
+          {sectors.map((sector, index) => (
+            <div 
+              key={index}
+              className="group relative p-6 bg-ivory/5 border border-gold/20 rounded-sm hover:bg-ivory/10 hover:border-gold/40 transition-all duration-300"
+            >
+              {/* Corner accent */}
+              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-gold/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-gold/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+              
+              <p className="text-ivory text-sm font-medium text-center leading-snug">
                 {sector}
-              </span>
+              </p>
             </div>
           ))}
         </div>

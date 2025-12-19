@@ -1,36 +1,58 @@
 'use client';
 
-import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
+import Divider from '@/components/ui/Divider';
 
-export default function Investment({ dictionary }: { dictionary: Dictionary }) {
-  const investment = dictionary.investment as { [key: string]: string };
+export default function Investment() {
+  const investment = {
+    title: 'Investment Philosophy',
+    description:
+      'My investment approach is guided by disciplined capital allocation, rigorous governance, and a long-term perspective. I seek opportunities where strategic leadership, operational excellence, and strong management teams can unlock sustainable growth and resilience.'
+  };
+
+  const principles = [
+    'Disciplined Capital Allocation',
+    'Rigorous Governance',
+    'Long-Term Perspective',
+    'Operational Excellence',
+    'Strong Management Teams'
+  ];
 
   return (
-    <Section background="dark">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-serif text-gold mb-4 text-center">
+    <Section id="investment" background="sand" spacing="relaxed" className="scroll-mt-20">
+      <div className="max-w-5xl mx-auto">
+        {/* Section Title */}
+        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-4 text-center">
           {investment.title}
         </h2>
         
-        <div className="w-24 h-px bg-gold mx-auto mb-12" />
+        <Divider className="mb-12 max-w-24 mx-auto" />
 
-        <p className="text-xl leading-relaxed text-ivory/90 text-center italic font-serif">
-          &ldquo;{investment.description}&rdquo;
+        {/* Description */}
+        <p className="text-lg md:text-xl text-slate leading-relaxed text-center max-w-3xl mx-auto mb-12">
+          {investment.description}
         </p>
 
-        {/* Investment principles */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { label: 'Disciplined Capital', icon: '◆' },
-            { label: 'Rigorous Governance', icon: '■' },
-            { label: 'Long-term Vision', icon: '▲' }
-          ].map(({ label, icon }, i) => (
-            <div key={i} className="text-center">
-              <div className="text-4xl text-gold mb-4">{icon}</div>
-              <p className="text-sand text-sm uppercase tracking-wider">{label}</p>
+        {/* Investment Principles */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+          {principles.map((principle, index) => (
+            <div key={index} className="flex items-start gap-4 group">
+              {/* Diamond bullet */}
+              <div className="mt-2 w-3 h-3 bg-gold rotate-45 shrink-0 group-hover:scale-110 transition-transform" />
+              
+              <p className="text-charcoal text-base font-medium leading-relaxed group-hover:text-gold transition-colors">
+                {principle}
+              </p>
             </div>
           ))}
+        </div>
+
+        {/* Decorative frame */}
+        <div className="mt-16 flex justify-center">
+          <div className="relative w-24 h-24">
+            <div className="absolute inset-0 border-2 border-gold/20 rotate-45" />
+            <div className="absolute inset-4 border-2 border-gold/40 rotate-45" />
+          </div>
         </div>
       </div>
     </Section>

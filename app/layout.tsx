@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, IBM_Plex_Sans_Arabic, Amiri } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 // English fonts
@@ -16,20 +16,6 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700"],
 });
 
-// Arabic fonts
-const ibmPlexArabic = IBM_Plex_Sans_Arabic({
-  variable: "--font-body-ar",
-  subsets: ["arabic"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const amiri = Amiri({
-  variable: "--font-heading-ar",
-  subsets: ["arabic"],
-  display: "swap",
-  weight: ["400", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Yousef Rashid Al-Rashid | Chairman, CEO & Principal Investor",
@@ -43,10 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${playfair.variable} ${ibmPlexArabic.variable} ${amiri.variable} antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         {children}
       </body>
     </html>

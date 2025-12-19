@@ -1,82 +1,109 @@
 'use client';
 
-import type { Dictionary } from '@/lib/i18n/types';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
+import Divider from '@/components/ui/Divider';
+// import Stat from '@/components/ui/Stat';
 
-interface CaseData {
-  company: string;
-  role: string;
-  description: string;
-  result: string;
-}
-
-interface ImpactDictionary {
-  title: string;
-  resultLabel: string;
-  [key: string]: string | CaseData;
-}
-
-export default function Impact({ dictionary }: { dictionary: Dictionary }) {
-  const impact = dictionary.impact as ImpactDictionary;
+export default function Impact() {
+  const impact = {
+    title: 'Leadership Impact',
+    resultLabel: 'Result:',
+    packaging: {
+      company: 'Packaging Products Company',
+      role: 'Chairman of the Board (2014–2022), Board Member (2022–Present)',
+      description:
+        'Led a comprehensive turnaround to restore margins by reducing manufacturing costs and introducing innovative high-value products.',
+      result: '13% unit cost reduction and production utilization above 95%.'
+    },
+    chicken: {
+      company: 'Golden Chicken Company',
+      role: 'Chairman of the Board (2015–Present)',
+      description:
+        'Repositioned the brand as a premium product and expanded distribution across the Kingdom.',
+      result: 'Rebranding and a growth plan to triple production capacity within three years.'
+    },
+    razin: {
+      company: 'Razin Trading Company',
+      role: 'Managing Director & Board Member (2014–Present)',
+      description: 'Introduced a design-to-order retail concept to counter market slowdown.',
+      result: 'Revenue growth from SAR 60M to SAR 93M and strengthened brand positioning.'
+    }
+  };
 
   const cases = [
-    { key: 'packaging', stat: '13%', statLabel: 'Cost Reduction' },
-    { key: 'chicken', stat: '3x', statLabel: 'Capacity Growth' },
-    { key: 'razin', stat: '55%', statLabel: 'Revenue Growth' }
+    {
+      key: 'packaging',
+      data: impact.packaging,
+      stats: [{ value: '13%', label: 'Cost Reduction' }, { value: '95%+', label: 'Production Utilization' }]
+    },
+    {
+      key: 'chicken',
+      data: impact.chicken,
+      stats: [{ value: '3x', label: 'Capacity Growth' }]
+    },
+    {
+      key: 'razin',
+      data: impact.razin,
+      stats: [{ value: 'SAR 93M', label: 'Revenue Achieved' }]
+    }
   ];
 
   return (
-    <Section id="impact" background="light">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-serif text-charcoal mb-4 text-center">
+    <Section id="impact" background="light" spacing="relaxed" className="scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Title */}
+        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-4 text-center pt-5! md:pt-12">
           {impact.title}
         </h2>
         
-        <div className="w-24 h-px bg-gold mx-auto mb-16" />
+        <Divider className="mb-16 max-w-24 mx-auto" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {cases.map(({ key, stat, statLabel }) => {
-            const caseData = impact[key] as CaseData;
-            return (
-              <Card key={key} className="flex flex-col h-full">
-                {/* Stat */}
-                <div className="text-center mb-6 pb-6 border-b border-divider">
-                  <div className="text-5xl font-serif text-gold mb-2">
-                    {stat}
-                  </div>
-                  <div className="text-slate text-xs uppercase tracking-wider">
-                    {statLabel}
-                  </div>
-                </div>
+        {/* Case Stories */}
+        <div className="space-y-2! md:space-y-2! pb-12!">
+          {cases.map(({ key, data}, index) => (
+            <div key={key} className="relative">
+              {/* Case Number - Positioned relative to container */}
+                <div className="absolute -left-14 top-2 w-12 h-12 bg-gold flex items-center justify-center text-charcoal font-serif text-xl font-bold shadow-md z-10">
+                {index + 1}
+              </div>
 
-                {/* Company */}
-                <h3 className="text-xl font-serif text-charcoal mb-2">
-                  {caseData.company}
-                </h3>
-                
-                {/* Role */}
-                <p className="text-sm text-slate mb-4 font-medium">
-                  {caseData.role}
-                </p>
-
-                {/* Description */}
-                <p className="text-charcoal/80 mb-4 leading-relaxed grow">
-                  {caseData.description}
-                </p>
-
-                {/* Result */}
-                <div className="pt-4 border-t border-divider/50">
-                  <p className="text-xs text-slate uppercase tracking-wide mb-1">
-                    {impact.resultLabel}
+                <Card className="pl-5! pr-8! pt-5! ">
+                <div className="space-y-4">
+                  {/* Company Name */}
+                  <h3 className="text-2xl font-serif text-charcoal">
+                    {data.company}
+                  </h3>
+                  
+                  {/* Role */}
+                  <p className="text-sm text-gold font-medium uppercase tracking-wider">
+                    {data.role}
                   </p>
-                  <p className="text-deep-green font-medium text-sm">
-                    {caseData.result}
+                  
+                  {/* Divider */}
+                  <div className="w-12 h-px bg-divider" />
+                  
+                  {/* Challenge & Strategy */}
+                  <p className="text-lg text-slate leading-relaxed pt-2">
+                    {data.description}
                   </p>
+                  
+                  {/* Result */}
+                  <div className="bg-sand/50 -mx-6 md:-mx-8 mt-8 p-6 md:p-8 border-t border-divider">
+                    <p className="text-sm text-gold font-semibold uppercase tracking-wider mb-3">
+                      {impact.resultLabel}
+                    </p>
+                    <p className="text-base text-charcoal font-medium mb-6 leading-relaxed">
+                      {data.result}
+                    </p>
+                    
+                    
+                    
+                  </div>
                 </div>
               </Card>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </Section>

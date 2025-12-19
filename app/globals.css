@@ -1,22 +1,102 @@
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    /* Primary Colors */
+    --charcoal-black: #121417;
+    --royal-green: #0F6B4A;
+    --warm-sand: #E8DDC8;
+    --champagne-gold: #C9A24D;
+    --soft-stone: #D6D3CD;
+    --cool-slate: #7A7F85;
+    --ivory-white: #F7F6F2;
+    --deep-green: #0B5A3E;
+    --muted-gold: #B8933F;
+    --light-divider: #E1D6BF;
+    
+    /* Define your fonts here */
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body-ar: 'Noto Sans Arabic', sans-serif;
+    --font-heading-ar: 'Amiri', serif;
+  }
 
-:root {
-  /* Primary Colors */
-  --charcoal-black: #121417;
-  --royal-green: #0F6B4A;
-  --warm-sand: #E8DDC8;
-  
-  /* Secondary Colors */
-  --champagne-gold: #C9A24D;
-  --soft-stone: #D6D3CD;
-  --cool-slate: #7A7F85;
-  --ivory-white: #F7F6F2;
-  
-  /* Functional Colors */
-  --deep-green: #0B5A3E;
-  --muted-gold: #B8933F;
-  --light-divider: #E1D6BF;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    background: var(--ivory-white);
+    color: var(--charcoal-black);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] body {
+    font-family: var(--font-body-ar);
+    font-size: 1.05em;
+  }
+
+  /* Typography - use more specific selectors to avoid conflicts */
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .prose h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  .prose h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+  }
+
+  .prose h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 500;
+  }
+
+  .prose p {
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  [dir="rtl"] .prose h1,
+  [dir="rtl"] .prose h2,
+  [dir="rtl"] .prose h3,
+  [dir="rtl"] .prose h4,
+  [dir="rtl"] .prose h5,
+  [dir="rtl"] .prose h6 {
+    font-family: var(--font-heading-ar);
+    letter-spacing: 0;
+    font-size: 1.1em;
+  }
+
+  [dir="rtl"] .prose p,
+  [dir="rtl"] .prose li,
+  [dir="rtl"] .prose span {
+    font-size: 1.05em;
+  }
+
+  ::selection {
+    background: var(--champagne-gold);
+    color: var(--charcoal-black);
+  }
 }
 
 @theme inline {
@@ -35,97 +115,48 @@
   /* Typography */
   --font-sans: var(--font-body);
   --font-serif: var(--font-heading);
-  --font-sans-ar: var(--font-body-ar);
-  --font-serif-ar: var(--font-heading-ar);
+  /* Note: Tailwind v4 doesn't support custom font families in @theme yet */
+  /* You may need to use CSS variables directly */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer components {
+  .page-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  @media (min-width: 768px) {
+    .page-container {
+      padding: 0 4rem;
+    }
+  }
 
-body {
-  background: var(--ivory-white);
-  color: var(--charcoal-black);
-  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* RTL Support */
-[dir="rtl"] body {
-  font-family: var(--font-sans-ar), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  font-size: 1.05em; /* Slightly larger for Arabic */
-}
-
-/* Typography Hierarchy */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif), serif;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-}
-
-[dir="rtl"] h1,
-[dir="rtl"] h2,
-[dir="rtl"] h3,
-[dir="rtl"] h4,
-[dir="rtl"] h5,
-[dir="rtl"] h6 {
-  font-family: var(--font-serif-ar), serif;
-  letter-spacing: 0;
-  font-size: 1.1em; /* Larger Arabic headings */
-}
-
-/* Arabic body text sizing */
-[dir="rtl"] p,
-[dir="rtl"] li,
-[dir="rtl"] span {
-  font-size: 1.05em;
-}
-
-/* Smooth Transitions */
-a, button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Smooth scroll offset for fixed header */
-html {
-  scroll-padding-top: 80px;
-}
-
-/* Selection */
-::selection {
-  background: var(--champagne-gold);
-  color: var(--charcoal-black);
-}
-
-/* Container */
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: 0 4rem;
+  @media (min-width: 1024px) {
+    .page-container {
+      padding: 0 6rem;
+    }
   }
 }
 
-@media (min-width: 1024px) {
-  .container {
-    padding: 0 6rem;
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .delay-300 {
+    animation-delay: 0.3s;
   }
 }
 
-/* Fade-in animation for sections */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -135,21 +166,4 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* Utility for staggered animations */
-.delay-100 {
-  animation-delay: 0.1s;
-}
-
-.delay-200 {
-  animation-delay: 0.2s;
-}
-
-.delay-300 {
-  animation-delay: 0.3s;
 }

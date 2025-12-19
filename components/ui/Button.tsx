@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 export default function Button({ children, onClick, variant = 'primary', className = '' }: ButtonProps) {
-  const baseClasses = 'px-8 py-3 rounded-sm font-medium transition-all duration-300 text-sm tracking-wide';
+  const baseClasses = 'rounded-sm font-medium transition-all duration-300 text-sm tracking-wide';
   
   const variantClasses = {
     primary: 'bg-charcoal text-gold hover:bg-deep-green hover:text-ivory border border-gold/30',
