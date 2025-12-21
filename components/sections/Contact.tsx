@@ -17,7 +17,7 @@ export default function Contact() {
     <Section id="contact" background="dark" spacing="default" className="scroll-mt-20">
       <div className="max-w-3xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-serif text-gold mb-4 text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-gold mb-4 text-center">
           {contact.title}
         </h2>
         
@@ -26,7 +26,7 @@ export default function Contact() {
         {/* Content Card */}
         <Card className="text-center bg-ivory/95 border-gold/20 p-8">
           {/* Description */}
-          <p className="text-lg text-slate leading-relaxed mb-8">
+          <p className="text-base text-slate leading-relaxed mb-8">
             {contact.description}
           </p>
 

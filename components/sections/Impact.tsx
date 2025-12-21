@@ -1,9 +1,8 @@
 'use client';
 
 import Section from '@/components/ui/Section';
-import Card from '@/components/ui/Card';
+import ImpactCard from '@/components/ui/ImpactCard';
 import Divider from '@/components/ui/Divider';
-// import Stat from '@/components/ui/Stat';
 
 export default function Impact() {
   const impact = {
@@ -51,58 +50,26 @@ export default function Impact() {
 
   return (
     <Section id="impact" background="light" spacing="relaxed" className="scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-2 sm:px-3 lg:px-4">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-4 text-center pt-5 md:pt-12">
+        <h2 className="text-2xl md:text-3xl font-serif text-charcoal mt-10 mb-4 text-center pt-5 md:pt-12">
           {impact.title}
         </h2>
         
-        <Divider className="mb-16 max-w-24 mx-auto" />
+        <Divider className="mb-6 max-w-24 mx-auto" />
 
         {/* Case Stories */}
-        <div className="space-y-2 md:space-y-2 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-12">
           {cases.map(({ key, data}, index) => (
-            <div key={key} className="relative">
-              {/* Case Number - Positioned relative to container */}
-                <div className="absolute -left-14 top-2 w-12 h-12 bg-gold flex items-center justify-center text-charcoal font-serif text-xl font-bold shadow-md z-10">
-                {index + 1}
-              </div>
-
-                <Card className="pl-5 pr-8 pt-5 ">
-                <div className="space-y-4">
-                  {/* Company Name */}
-                  <h3 className="text-2xl font-serif text-charcoal">
-                    {data.company}
-                  </h3>
-                  
-                  {/* Role */}
-                  <p className="text-sm text-gold font-medium uppercase tracking-wider">
-                    {data.role}
-                  </p>
-                  
-                  {/* Divider */}
-                  <div className="w-12 h-px bg-divider" />
-                  
-                  {/* Challenge & Strategy */}
-                  <p className="text-lg text-slate leading-relaxed pt-2">
-                    {data.description}
-                  </p>
-                  
-                  {/* Result */}
-                  <div className="bg-sand/50 -mx-6 md:-mx-8 mt-8 p-6 md:p-8 border-t border-divider">
-                    <p className="text-sm text-gold font-semibold uppercase tracking-wider mb-3">
-                      {impact.resultLabel}
-                    </p>
-                    <p className="text-base text-charcoal font-medium mb-6 leading-relaxed">
-                      {data.result}
-                    </p>
-                    
-                    
-                    
-                  </div>
-                </div>
-              </Card>
-            </div>
+            <ImpactCard
+              key={key}
+              company={data.company}
+              role={data.role}
+              description={data.description}
+              result={data.result}
+              index={index + 1}
+              resultLabel={impact.resultLabel}
+            />
           ))}
         </div>
       </div>

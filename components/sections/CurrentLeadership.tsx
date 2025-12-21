@@ -16,7 +16,7 @@ export default function CurrentLeadership() {
     <Section id="current-leadership" background="sand" spacing="default" className="scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-4 text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-charcoal mb-4 text-center">
           {current.title}
         </h2>
         
@@ -29,17 +29,17 @@ export default function CurrentLeadership() {
           
           <div className="text-center md:text-left">
             {/* Company Name */}
-            <h3 className="text-2xl md:text-3xl font-serif text-gold mb-3">
+            <h3 className="text-xl md:text-2xl font-serif text-gold mb-3">
               {current.company}
             </h3>
             
             {/* Role */}
-            <p className="text-lg text-charcoal font-medium mb-6 uppercase tracking-wide">
+            <p className="text-base text-charcoal font-medium mb-6 uppercase tracking-wide">
               {current.role}
             </p>
             
             {/* Description */}
-            <p className="text-lg text-slate leading-relaxed">
+            <p className="text-base text-slate leading-relaxed">
               {current.description}
             </p>
           </div>

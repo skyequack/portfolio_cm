@@ -36,7 +36,7 @@ export default function Pillars() {
     <Section id="pillars" background="light" spacing="default" className="scroll-mt-20">
       <div className="max-w-6xl mx-auto pt-5">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-5 text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-charcoal mb-5 text-center">
           {pillars.title}
         </h2>
         
@@ -58,7 +58,7 @@ export default function Pillars() {
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-serif text-charcoal mb-4 leading-tight">
+              <h3 className="text-lg font-serif text-charcoal mb-4 leading-tight">
                 {pillar.title}
               </h3>
 
@@ -66,7 +66,7 @@ export default function Pillars() {
               <div className="w-12 h-px bg-gold/30 mb-4" />
 
               {/* Description */}
-              <p className="text-slate text-sm leading-relaxed">
+              <p className="text-slate text-xs leading-relaxed">
                 {pillar.description}
               </p>
 

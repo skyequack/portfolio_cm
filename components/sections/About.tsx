@@ -14,7 +14,7 @@ export default function About() {
     <Section id="about" background="light" spacing="relaxed" className="scroll-mt-20">
       <div className="max-w-4xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-4 text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-charcoal mb-4 text-center">
           {about.title}
         </h2>
         
@@ -22,11 +22,11 @@ export default function About() {
 
         {/* Content */}
         <div className="space-y-6 text-center">
-          <p className="text-lg md:text-xl text-slate leading-relaxed">
+          <p className="text-base md:text-lg text-slate leading-relaxed">
             {about.p1}
           </p>
           
-          <p className="text-lg md:text-xl text-slate leading-relaxed">
+          <p className="text-base md:text-lg text-slate leading-relaxed">
             {about.p2}
           </p>
         </div>

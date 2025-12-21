@@ -12,9 +12,9 @@ import Contact from '@/components/sections/Contact';
 
 export default function RootPage() {
   return (
-    <div className="min-h-screen">
+    <div className="h-screen overflow-hidden">
       <Header />
-      <main>
+      <main className="snap-container">
         <Hero />
         <Pillars />
         <About />
@@ -24,8 +24,8 @@ export default function RootPage() {
         <Investment />
         <Experience />
         <Contact />
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
 }

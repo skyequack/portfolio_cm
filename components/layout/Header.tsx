@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
   const nav = {
@@ -12,55 +12,111 @@ export default function Header() {
     contact: 'Contact',
   };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('hero');
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const scrollContainer = document.querySelector('.snap-container');
+    
+    if (element && scrollContainer) {
+      const elementTop = element.offsetTop;
+      scrollContainer.scrollTo({
+        top: elementTop,
+        behavior: 'smooth'
+      });
       setMobileMenuOpen(false);
     }
   };
 
+  useEffect(() => {
+    const sectionIds = [
+      'hero',
+      'pillars',
+      'about',
+      'current-leadership',
+      'impact',
+      'governance',
+      'investment',
+      'experience',
+      'contact',
+    ];
+
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length) {
+          const topEntry = visible.reduce((a, b) =>
+            a.intersectionRatio > b.intersectionRatio ? a : b
+          );
+          setActiveSection(topEntry.target.id);
+        }
+      },
+      {
+        root: document.querySelector('.snap-container'),
+        rootMargin: '0px',
+        threshold: [0.5, 0.75, 1],
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-charcoal/98 backdrop-blur-md border-b border-gold/20">
-      <nav className="container mx-auto pl-6 pr-6 py-8 md:py-10">
+      {/* Decorative top-left gold radial gradient overlay */}
+      <div className="absolute top-0 left-0 w-100 h-100 pointer-events-none z-0 bg-[radial-gradient(ellipse_120%_60%_at_top_left,rgba(255,215,0,0.07)_0%,rgba(255,215,0,0)_60%)]" />
+      <nav className="container mx-auto pl-6 pr-6 py-8 md:py-10 relative z-10">
         <div className="flex items-center justify-between">
           
           {/* Logo / Monogram */}
           <button 
             onClick={() => scrollToSection('hero')}
-            className="relative group -ml-6"
+            className="relative group ml-6"
           >
             <div className="flex items-center gap-3">
               {/* Monogram box with gold accent */}
-              <div className="relative w-12 h-12 border border-gold/40 flex items-center justify-center group-hover:border-gold transition-colors">
+              <div className="relative w-16 h-16 border border-gold/40 flex items-center justify-center group-hover:border-gold transition-colors">
                 <span className="text-gold text-xl font-serif tracking-tighter">YR</span>
-                <div className="absolute -top-1 -right-1 w-2 h-2 bg-gold" />
-              </div>
-              {/* Full name on larger screens */}
-              <span className="hidden lg:block text-ivory text-base font-serif tracking-wide group-hover:text-gold transition-colors">
-                Yousef Rashid Al-Rashid
-              </span>
+                <div className="absolute -top-1 -left-1 w-2 h-2 bg-gold" />
+              </div>             
             </div>
           </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 ml-auto mr-6">
             {[
+              { id: 'pillars', label: 'Pillars' },
               { id: 'about', label: nav.about },
-              { id: 'journey', label: nav.leadership },
+              { id: 'current-leadership', label: nav.leadership },
               { id: 'impact', label: nav.impact },
               { id: 'governance', label: nav.governance },
+              { id: 'investment', label: nav.investment },
+              { id: 'experience', label: 'Experience' },
               { id: 'contact', label: nav.contact }
             ].map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className="relative px-2 py-2 text-ivory/80 hover:text-ivory text-base font-serif tracking-wide transition-colors group"
+                className={`relative px-2 py-2 text-base font-serif tracking-wide transition-colors group ${
+                  activeSection === id
+                    ? 'text-gold'
+                    : 'text-ivory/80 hover:text-ivory'
+                }`}
               >
                 {label}
-                {/* Subtle gold underline on hover */}
-                <span className="absolute bottom-0 left-2 right-2 h-px bg-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                {/* Subtle gold underline on hover and when active */}
+                <span
+                  className={`absolute bottom-0 left-2 right-2 h-px bg-gold transition-transform origin-left ${
+                    activeSection === id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  }`}
+                />
               </button>
             ))}
           </div>
@@ -84,16 +140,23 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-6 pt-6 border-t border-gold/20 space-y-2">
             {[
+              { id: 'pillars', label: 'Pillars' },
               { id: 'about', label: nav.about },
-              { id: 'journey', label: nav.leadership },
+              { id: 'current-leadership', label: nav.leadership },
               { id: 'impact', label: nav.impact },
               { id: 'governance', label: nav.governance },
+              { id: 'investment', label: nav.investment },
+              { id: 'experience', label: 'Experience' },
               { id: 'contact', label: nav.contact }
             ].map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className="block w-full text-left px-4 py-3 text-ivory/80 hover:text-ivory hover:bg-gold/5 text-base transition-colors border-l-2 border-transparent hover:border-gold"
+                className={`block w-full text-left px-4 py-3 text-base transition-colors border-l-2 ${
+                  activeSection === id
+                    ? 'text-gold bg-gold/5 border-gold'
+                    : 'text-ivory/80 hover:text-ivory hover:bg-gold/5 border-transparent hover:border-gold'
+                }`}
               >
                 {label}
               </button>

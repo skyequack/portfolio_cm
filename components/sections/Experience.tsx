@@ -20,7 +20,7 @@ export default function Experience() {
     <Section id="experience" background="light" spacing="default" className="scroll-mt-20">
       <div className="max-w-4xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-serif text-charcoal mb-4 text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-charcoal mb-4 text-center">
           {experience.title}
         </h2>
         

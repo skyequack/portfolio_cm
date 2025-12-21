@@ -24,14 +24,14 @@ export default function Governance() {
     <Section id="governance" background="dark" spacing="default" className="scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-serif text-gold mb-4 text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-gold mb-4 text-center">
           {boards.title}
         </h2>
         
         <Divider className="mb-12 max-w-24 mx-auto" />
 
         {/* Description */}
-        <p className="text-lg md:text-xl text-ivory/90 leading-relaxed text-center max-w-3xl mx-auto mb-12">
+        <p className="text-base md:text-lg text-ivory/90 leading-relaxed text-center max-w-3xl mx-auto mb-12">
           {boards.description}
         </p>
 

@@ -1,5 +1,6 @@
 'use client';
 
+
 export default function Hero() {
   const hero = {
     name: 'Yousef Rashid Al-Rashid',
@@ -20,7 +21,7 @@ export default function Hero() {
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex items-center bg-charcoal relative overflow-hidden py-32 md:py-40">
+    <section id="hero" className="h-screen snap-section flex items-center bg-charcoal relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
@@ -30,19 +31,21 @@ export default function Hero() {
         }} />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      
+
+      <div className="container mx-auto px-3 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             
             {/* Left: Portrait */}
-            <div className="flex justify-center lg:justify-end order-2 lg:order-1">
-              <div className="relative">
+            <div className="flex items-center justify-center order-2 lg:order-1 animate-fade-in-up delay-200 mt-12">
+              <div className="relative group">
                 {/* Gold frame border */}
-                <div className="absolute -inset-4 border-2 border-gold/30 rounded-sm" />
+                <div className="absolute -inset-4 border-2 border-gold/30 rounded-sm transition-all duration-500 group-hover:border-gold/60 group-hover:-inset-5" />
                 
                 {/* Portrait placeholder */}
-                <div className="relative w-80 h-96 md:w-96 md:h-120 bg-slate/10 rounded-sm overflow-hidden">
-                  {/* Placeholder silhouette */}
+                <div className="relative w-72 h-96 md:w-90 md:h-100 bg-slate/10 rounded-sm overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+                  {/* Plxaceholder silhouette */}
                   <div className="absolute inset-0 flex items-end justify-center pb-8">
                     <div className="text-gold/20 text-9xl">
                       <svg className="w-48 h-48" fill="currentColor" viewBox="0 0 24 24">
@@ -62,41 +65,43 @@ export default function Hero() {
             </div>
 
             {/* Right: Content */}
-            <div className="order-1 lg:order-2 text-center lg:text-left">
+            <div className="order-1 lg:order-2 flex items-center mt-12">
+              <div className="w-full text-center lg:text-left">
               {/* Name */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-gold mb-4 tracking-tight leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gold mb-4 tracking-tight leading-tight animate-fade-in-up">
                 {hero.name}
               </h1>
 
               {/* Title */}
-              <p className="text-sand text-lg md:text-xl mb-6 font-light tracking-wide leading-relaxed">
+              <p className="text-sand text-base md:text-lg mb-6 font-light tracking-wide leading-relaxed animate-fade-in-up delay-100">
                 {hero.title}
               </p>
 
               {/* Gold divider */}
-              <div className="w-16 h-px bg-gold mb-8 mx-auto lg:mx-0" />
+              <div className="w-16 h-px bg-gold mb-8 mx-auto lg:mx-0 animate-fade-in-up delay-200" />
 
               {/* Positioning statement */}
-              <p className="text-ivory/90 text-lg md:text-xl mb-12 leading-relaxed font-serif italic">
+              <p className="text-ivory/90 text-base md:text-lg mb-12 leading-relaxed font-serif italic animate-fade-in-up delay-300">
                 {hero.tagline}
               </p>
 
               {/* Three Pillars */}
-              <div className="space-y-4 mb-8">
-                <p className="text-gold text-sm uppercase tracking-widest mb-6 font-medium">
+              <div className="space-y-4 mb-8 animate-fade-in-up delay-400">
+                <p className="text-gold text-xs uppercase tracking-widest mb-6 font-medium">
                   {pillars.title}
                 </p>
-                {pillarsList.map(({ key, label }) => (
-                  <div 
-                    key={key} 
-                    className="flex items-center gap-3 group mx-auto lg:mx-0 justify-center lg:justify-start"
+                {pillarsList.map(({ key, label }, index) => (
+                  <div
+                    key={key}
+                    className="flex items-center gap-3 group mx-auto lg:mx-0 justify-center lg:justify-start hover:translate-x-2 transition-transform duration-300"
                   >
-                    <div className="w-2 h-2 bg-gold rotate-45" />
-                    <span className="text-ivory text-base font-medium group-hover:text-gold transition-colors">
+                    <div className="w-2 h-2 bg-gold rotate-45 group-hover:scale-125 transition-transform duration-300" />
+                    <span className="text-ivory text-sm font-medium group-hover:text-gold transition-colors duration-300">
                       {label}
                     </span>
                   </div>
                 ))}
+              </div>
               </div>
             </div>
 
@@ -105,7 +110,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div className="w-5 h-8 border border-gold/40 rounded-full flex items-start justify-center p-1">
           <div className="w-1 h-2 bg-gold/60 rounded-full" />
         </div>

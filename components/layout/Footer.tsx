@@ -2,8 +2,8 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal border-t border-gold/20">
-      <div className="container mx-auto px-6 py-16">
+    <footer className="snap-section bg-charcoal border-t border-gold/20 h-screen flex items-center">
+      <div className="container mx-auto px-6 py-16 w-full">
         <div className="max-w-7xl mx-auto">
           
           {/* Top Section */}
