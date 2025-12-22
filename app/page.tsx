@@ -16,8 +16,8 @@ export default function RootPage() {
       <Header />
       <main className="snap-container">
         <Hero />
-        <Pillars />
         <About />
+        <Pillars />
         <CurrentLeadership />
         <Impact />
         <Governance />

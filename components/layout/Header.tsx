@@ -74,7 +74,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-charcoal/98 backdrop-blur-md border-b border-gold/20">
       {/* Decorative top-left gold radial gradient overlay */}
       <div className="absolute top-0 left-0 w-100 h-100 pointer-events-none z-0 bg-[radial-gradient(ellipse_120%_60%_at_top_left,rgba(255,215,0,0.07)_0%,rgba(255,215,0,0)_60%)]" />
-      <nav className="container mx-auto pl-6 pr-6 py-8 md:py-10 relative z-10">
+      <nav className="container mx-auto pl-6 pr-6 py-4 md:py-5 relative z-10">
         <div className="flex items-center justify-between">
           
           {/* Logo / Monogram */}
@@ -84,8 +84,8 @@ export default function Header() {
           >
             <div className="flex items-center gap-3">
               {/* Monogram box with gold accent */}
-              <div className="relative w-16 h-16 border border-gold/40 flex items-center justify-center any-group-hover:border-gold transition-colors">
-                <span className="text-gold text-3xl font-serif tracking-tighter">YR</span>
+              <div className="relative w-12 h-12 border border-gold/40 flex items-center justify-center any-group-hover:border-gold transition-colors">
+                <span className="text-gold text-2xl font-serif tracking-tighter">YR</span>
                 <div className="absolute -top-1 -left-1 w-2 h-2 bg-gold" />
               </div>             
             </div>

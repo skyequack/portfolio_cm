@@ -36,16 +36,16 @@ export default function Hero() {
 
       <div className="container mx-auto px-3 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-7 gap-16">
             
             {/* Left: Portrait */}
-            <div className="flex items-center justify-center order-2 lg:order-1 animate-fade-in-up delay-200 mt-36">
+            <div className="flex items-center justify-center order-2 lg:order-1 lg:col-span-3 animate-fade-in-up delay-200 mt-24">
               <div className="relative group">
                 {/* Gold frame border */}
                 <div className="absolute -inset-4 border-2 border-gold/30 rounded-sm transition-all duration-500 any-group-hover:border-gold/60 any-group-hover:-inset-5" />
                 
                 {/* Portrait placeholder */}
-                <div className="relative w-64 h-96 md:w-80 md:h-120 bg-slate/10 rounded-sm overflow-hidden transition-transform duration-500 any-group-hover:scale-[1.02]">
+                <div className="relative w-72 sm:w-72 md:w-90 aspect-2/3 bg-slate/10 rounded-sm overflow-hidden transition-transform duration-500 any-group-hover:scale-[1.02]">
                   {/* Hero Image */}
                   <Image
                     src="/images/hero_image.png"
@@ -66,23 +66,23 @@ export default function Hero() {
             </div>
 
             {/* Right: Content */}
-            <div className="order-1 lg:order-2 flex items-center mt-36">
-              <div className="w-full text-center lg:text-left">
+            <div className="order-1 lg:order-2 lg:col-span-4 flex items-center mt-24">
+              <div className="w-full text-left">
               {/* Name */}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gold mb-4 tracking-tight leading-tight animate-fade-in-up">
+              <h1 className="text-3xl md:text-4xl lg:text-4xl font-serif text-gold mb-4 tracking-tight leading-tight animate-fade-in-up">
                 {hero.name}
               </h1>
 
               {/* Title */}
-              <p className="text-sand text-base md:text-lg mb-6 font-light tracking-wide leading-relaxed animate-fade-in-up delay-100">
+              <p className="text-sand text-base md:text-base mb-6 font-light tracking-wide leading-relaxed animate-fade-in-up delay-100">
                 {hero.title}
               </p>
 
               {/* Gold divider */}
-              <div className="w-16 h-px bg-gold mb-8 mx-auto lg:mx-0 animate-fade-in-up delay-200" />
+              <div className="w-16 h-px bg-gold mb-8 animate-fade-in-up delay-200" />
 
               {/* Positioning statement */}
-              <p className="text-ivory/90 text-base md:text-lg mb-12 leading-relaxed font-serif italic animate-fade-in-up delay-300">
+                <p className="text-ivory/90 text-sm md:text-sm mb-12 leading-relaxed font-serif italic animate-fade-in-up delay-300">
                 {hero.tagline}
               </p>
 
@@ -94,7 +94,7 @@ export default function Hero() {
                 {pillarsList.map(({ key, label }) => (
                   <div
                     key={key}
-                    className="flex items-center gap-3 group mx-auto lg:mx-0 justify-center lg:justify-start any-hover:translate-x-2 transition-transform duration-300"
+                    className="flex items-center gap-3 group justify-start any-hover:translate-x-2 transition-transform duration-300"
                   >
                     <div className="w-2 h-2 bg-gold rotate-45 any-group-hover:scale-125 transition-transform duration-300" />
                     <span className="text-ivory text-sm font-medium any-group-hover:text-gold transition-colors duration-300">
@@ -105,7 +105,7 @@ export default function Hero() {
               </div>
 
               {/* LinkedIn Link */}
-              <div className="animate-fade-in-up delay-500 flex justify-center lg:justify-start">
+              <div className="animate-fade-in-up delay-500 flex justify-start">
                 <a
                   href="https://www.linkedin.com/in/yousef-al-rashid"
                   target="_blank"
