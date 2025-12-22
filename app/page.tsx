@@ -5,8 +5,7 @@ import About from '@/components/sections/About';
 import CurrentLeadership from '@/components/sections/CurrentLeadership';
 import Impact from '@/components/sections/Impact';
 import Governance from '@/components/sections/Governance';
-import Investment from '@/components/sections/Investment';
-import Experience from '@/components/sections/Experience';
+import CoreCompetencies from '@/components/sections/core';
 import Education from '@/components/sections/Education';
 import Contact from '@/components/sections/Contact';
 
@@ -21,8 +20,7 @@ export default function RootPage() {
         <CurrentLeadership />
         <Impact />
         <Governance />
-        <Investment />
-        <Experience />
+        <CoreCompetencies />
         <Education />
         <Contact />
       </main>

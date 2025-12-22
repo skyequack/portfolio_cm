@@ -66,7 +66,7 @@ export default function Pillars() {
               <div className="w-12 h-px bg-gold/30 mb-4" />
 
               {/* Description */}
-              <p className="text-slate text-xs leading-relaxed">
+              <p className="text-slate text-l leading-relaxed">
                 {pillar.description}
               </p>
 

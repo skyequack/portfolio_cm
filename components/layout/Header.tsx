@@ -8,7 +8,7 @@ export default function Header() {
     leadership: 'Leadership',
     impact: 'Impact',
     governance: 'Board Portfolio',
-    investment: 'Investment',
+    coreCompetencies: 'Core Competencies',
     education: 'Education',
     contact: 'Contact',
   };
@@ -37,7 +37,7 @@ export default function Header() {
       'current-leadership',
       'impact',
       'governance',
-      'investment',
+      'core-competencies',
       'experience',
       'education',
       'contact',
@@ -98,8 +98,7 @@ export default function Header() {
               { id: 'current-leadership', label: nav.leadership },
               { id: 'impact', label: nav.impact },
               { id: 'governance', label: nav.governance },
-              { id: 'investment', label: nav.investment },
-              { id: 'experience', label: 'Experience' },
+              { id: 'core-competencies', label: nav.coreCompetencies },
               { id: 'education', label: nav.education },
               { id: 'contact', label: nav.contact }
             ].map(({ id, label }) => (
@@ -146,8 +145,7 @@ export default function Header() {
               { id: 'current-leadership', label: nav.leadership },
               { id: 'impact', label: nav.impact },
               { id: 'governance', label: nav.governance },
-              { id: 'investment', label: nav.investment },
-              { id: 'experience', label: 'Experience' },
+              { id: 'core-competencies', label: nav.coreCompetencies },
               { id: 'education', label: nav.education },
               { id: 'contact', label: nav.contact }
             ].map(({ id, label }) => (
