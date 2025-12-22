@@ -20,7 +20,7 @@ export default function About() {
         <Divider className="mb-12 max-w-24 mx-auto" />
 
         <div>
-          <p className="text-base md:text-lg text-slate leading-relaxed text-justify">
+          <p className="text-base md:text-lg text-slate leading-relaxed text-center">
             {about.description}
           </p>
         </div>

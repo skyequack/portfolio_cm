@@ -18,20 +18,28 @@ export default function CurrentLeadership() {
         'Implemented group-wide governance frameworks, policies, and procedures across subsidiaries and at holding level.'
       ]
     },
+    {
+      company: 'Darajat Contracting Company',
+      role: 'Chief Executive Officer',
+      period: '2021 – Present',
+      responsibilities: [
+        'Leads executive decision-making and directs execution of business plan priorities and strategic initiatives.'
+      ]
+    },
   ];
 
   return (
     <Section id="current-leadership" background="sand" spacing="default" className="scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-2xl md:text-3xl font-serif text-charcoal mb-4 text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-charcoal mt-12 mb-4 text-center">
           Current Executive Leadership
         </h2>
         
         <Divider className="mb-12 max-w-24 mx-auto" />
 
         {/* Leadership Cards */}
-        <div className="space-y-8">
+        <div className="space-y-8 mb-12">
           {positions.map((position, index) => (
             <Card key={index} className="relative overflow-hidden p-8">
               {/* Top accent line */}
