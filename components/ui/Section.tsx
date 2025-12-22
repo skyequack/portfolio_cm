@@ -8,9 +8,17 @@ interface SectionProps {
   className?: string;
   background?: 'light' | 'dark' | 'sand';
   spacing?: 'compact' | 'default' | 'relaxed';
+  fullHeight?: boolean;
 }
 
-export default function Section({ children, id, className = '', background = 'light', spacing }: SectionProps) {
+export default function Section({ 
+  children, 
+  id, 
+  className = '', 
+  background = 'light', 
+  spacing,
+  fullHeight = true 
+}: SectionProps) {
   const { elementRef, isVisible } = useFadeIn(0.15);
 
   const bgClasses = {
@@ -20,18 +28,26 @@ export default function Section({ children, id, className = '', background = 'li
   } as const;
 
   const spacingClasses = {
-    compact: 'py-16 md:py-20 h-screen flex items-center snap-section',
-    default: 'py-24 md:py-32 h-screen flex items-center snap-section',
-    relaxed: 'py-32 md:py-40 h-screen flex items-center snap-section'
+    compact: 'py-16 md:py-20',
+    default: 'py-24 md:py-32',
+    relaxed: 'py-32 md:py-40'
   } as const;
+
+  // Build height classes based on fullHeight prop
+  const heightClasses = fullHeight 
+    ? 'min-h-screen flex items-center snap-section' 
+    : '';
+
+  // Apply spacing only when NOT using fullHeight
+  const appliedSpacing = fullHeight ? '' : (spacing ? spacingClasses[spacing] : spacingClasses.default);
 
   return (
     <section 
       ref={elementRef as React.RefObject<HTMLElement>}
       id={id} 
-      className={`fade-in-section ${isVisible ? 'visible' : ''} ${spacing ? spacingClasses[spacing] : ''} ${bgClasses[background]} ${className}`}
+      className={`fade-in-section ${isVisible ? 'visible' : ''} ${appliedSpacing} ${heightClasses} ${bgClasses[background]} ${className}`}
     >
-      <div className="container mx-auto w-full h-full flex items-center px-3">
+      <div className={`container mx-auto w-full px-3 ${fullHeight ? 'h-full flex items-center' : ''}`}>
         {children}
       </div>
     </section>

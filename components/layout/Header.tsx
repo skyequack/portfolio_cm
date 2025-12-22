@@ -7,8 +7,9 @@ export default function Header() {
     about: 'About',
     leadership: 'Leadership',
     impact: 'Impact',
-    governance: 'Governance',
+    governance: 'Board Portfolio',
     investment: 'Investment',
+    education: 'Education',
     contact: 'Contact',
   };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,6 +39,7 @@ export default function Header() {
       'governance',
       'investment',
       'experience',
+      'education',
       'contact',
     ];
 
@@ -83,7 +85,7 @@ export default function Header() {
             <div className="flex items-center gap-3">
               {/* Monogram box with gold accent */}
               <div className="relative w-16 h-16 border border-gold/40 flex items-center justify-center group-hover:border-gold transition-colors">
-                <span className="text-gold text-xl font-serif tracking-tighter">YR</span>
+                <span className="text-gold text-3xl font-serif tracking-tighter">YR</span>
                 <div className="absolute -top-1 -left-1 w-2 h-2 bg-gold" />
               </div>             
             </div>
@@ -92,13 +94,13 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 ml-auto mr-6">
             {[
-              { id: 'pillars', label: 'Pillars' },
               { id: 'about', label: nav.about },
               { id: 'current-leadership', label: nav.leadership },
               { id: 'impact', label: nav.impact },
               { id: 'governance', label: nav.governance },
               { id: 'investment', label: nav.investment },
               { id: 'experience', label: 'Experience' },
+              { id: 'education', label: nav.education },
               { id: 'contact', label: nav.contact }
             ].map(({ id, label }) => (
               <button
@@ -140,13 +142,13 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-6 pt-6 border-t border-gold/20 space-y-2">
             {[
-              { id: 'pillars', label: 'Pillars' },
               { id: 'about', label: nav.about },
               { id: 'current-leadership', label: nav.leadership },
               { id: 'impact', label: nav.impact },
               { id: 'governance', label: nav.governance },
               { id: 'investment', label: nav.investment },
               { id: 'experience', label: 'Experience' },
+              { id: 'education', label: nav.education },
               { id: 'contact', label: nav.contact }
             ].map(({ id, label }) => (
               <button

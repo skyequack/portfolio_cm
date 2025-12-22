@@ -8,6 +8,7 @@ import Impact from '@/components/sections/Impact';
 import Governance from '@/components/sections/Governance';
 import Investment from '@/components/sections/Investment';
 import Experience from '@/components/sections/Experience';
+import Education from '@/components/sections/Education';
 import Contact from '@/components/sections/Contact';
 
 export default function RootPage() {
@@ -23,6 +24,7 @@ export default function RootPage() {
         <Governance />
         <Investment />
         <Experience />
+        <Education />
         <Contact />
         <Footer />
       </main>

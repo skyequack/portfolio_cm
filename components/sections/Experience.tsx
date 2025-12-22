@@ -20,16 +20,16 @@ export default function Experience() {
     <Section id="experience" background="light" spacing="default" className="scroll-mt-20">
       <div className="max-w-4xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-2xl md:text-3xl font-serif text-charcoal mb-4 text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-charcoal mb-4 text-center mt-36">
           {experience.title}
         </h2>
         
         <Divider className="mb-12 max-w-24 mx-auto" />
 
         {/* Timeline */}
-        <div className="relative space-y-6">
+        <div className="relative space-y-6 mb-36">
           {/* Vertical line */}
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-linear-to-b from-gold via-gold/50 to-gold/20 hidden md:block" />
+          <div className="absolute left-1 top-10 bottom-7 w-1 bg-linear-to-b from-gold via-gold/50 to-gold/40 hidden md:block" />
 
           {experience.items.map((item: string, index: number) => (
             <div key={index} className="relative flex gap-6 group">
@@ -39,7 +39,7 @@ export default function Experience() {
               </div>
 
               {/* Content */}
-              <div className="flex-1 pb-6">
+              <div className="flex-1 ">
                 <div className="bg-ivory/50 border border-divider rounded-sm p-6 group-hover:bg-ivory group-hover:border-gold/30 transition-all">
                   <p className="text-slate text-base leading-relaxed">
                     {item}

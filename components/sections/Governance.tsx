@@ -4,51 +4,95 @@ import Section from '@/components/ui/Section';
 import Divider from '@/components/ui/Divider';
 
 export default function Governance() {
-  const boards = {
-    title: 'Boards & Governance',
-    description:
-      'Serving as Chairman, Vice Chairman, Board Member, and Audit or Executive Committee member across leading organizations in healthcare, manufacturing, contracting, real estate, food production, technology investments, and financial services. Recognized for building governance frameworks, steering major projects, and ensuring disciplined oversight.'
-  };
-
-  const sectors = [
-    'Healthcare',
-    'Manufacturing',
-    'Contracting',
-    'Real Estate',
-    'Food Production',
-    'Technology Investments',
-    'Financial Services'
+  const boardPositions = [
+    {
+      company: 'Food AROMA Company',
+      role: 'Chairman of the Board',
+      period: '2019–Present'
+    },
+    {
+      company: 'Saudi Services for Electromechanical Works (SSEM)',
+      role: 'Vice Chairman; Chairman, Executive Committee',
+      period: '2022–Present'
+    },
+    {
+      company: 'Technology Investments Company',
+      role: 'Board Member; Executive Committee Member',
+      period: '2022–Present'
+    },
+    {
+      company: 'Morouj Real Estate Development Company',
+      role: 'Board Member',
+      period: '2022–Present'
+    },
+    {
+      company: 'Tabouk Fishery',
+      role: 'Board Member; Executive Committee Member',
+      period: '2014–Present'
+    },
+    {
+      company: 'Saudi Rubber Products Company',
+      role: 'Managing Director (2006–2015); Board Member',
+      period: '2015–Present'
+    },
+    {
+      company: 'Ejar Cranes and Equipment',
+      role: 'Executive Committee Member',
+      period: '2014–Present'
+    },
+    {
+      company: 'Arabian United Float Glass Company',
+      role: 'Board Member',
+      period: '2014–Present'
+    },
+    {
+      company: 'Al Rashid Abetong',
+      role: 'Board Member',
+      period: '2022–Present'
+    },
+    {
+      company: 'Tilal Al-Khair Company',
+      role: 'Owner & Board Member',
+      period: '2021–Dec 2022'
+    },
+    {
+      company: 'Vision Bank',
+      role: 'Board Member',
+      period: '2024–Present'
+    }
   ];
 
   return (
     <Section id="governance" background="dark" spacing="default" className="scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-2xl md:text-3xl font-serif text-gold mb-4 text-center">
-          {boards.title}
+        <h2 className="text-2xl md:text-3xl font-serif text-gold mt-36 mb-4 text-center">
+          Board Portfolio
         </h2>
         
         <Divider className="mb-12 max-w-24 mx-auto" />
 
-        {/* Description */}
-        <p className="text-base md:text-lg text-ivory/90 leading-relaxed text-center max-w-3xl mx-auto mb-12">
-          {boards.description}
-        </p>
-
-        {/* Sectors Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
-          {sectors.map((sector, index) => (
+        {/* Board Positions List */}
+        <div className="space-y-3 mb-36">
+          {boardPositions.map((position, index) => (
             <div 
               key={index}
-              className="group relative p-6 bg-ivory/5 border border-gold/20 rounded-sm hover:bg-ivory/10 hover:border-gold/40 transition-all duration-300"
+              className="flex flex-col md:flex-row md:justify-between gap-1 py-2 border-b border-gold/10 last:border-0"
             >
-              {/* Corner accent */}
-              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-gold/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-gold/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-              
-              <p className="text-ivory text-sm font-medium text-center leading-snug">
-                {sector}
-              </p>
+              <div className="flex-1">
+                <span className="text-gold font-medium">
+                  {position.company}
+                </span>
+                <span className="text-ivory/70 text-sm mx-2">|</span>
+                <span className="text-ivory/90 text-sm">
+                  {position.role}
+                </span>
+              </div>
+              <div className=" md:text-right md:ml-4 flex-shrink-0" >
+                <span className="text-ivory/60 text-sm">
+                  ({position.period})
+                </span>
+              </div>
             </div>
           ))}
         </div>

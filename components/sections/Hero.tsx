@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 
 export default function Hero() {
   const hero = {
@@ -38,24 +39,24 @@ export default function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             
             {/* Left: Portrait */}
-            <div className="flex items-center justify-center order-2 lg:order-1 animate-fade-in-up delay-200 mt-12">
+            <div className="flex items-center justify-center order-2 lg:order-1 animate-fade-in-up delay-200 mt-36">
               <div className="relative group">
                 {/* Gold frame border */}
                 <div className="absolute -inset-4 border-2 border-gold/30 rounded-sm transition-all duration-500 group-hover:border-gold/60 group-hover:-inset-5" />
                 
                 {/* Portrait placeholder */}
-                <div className="relative w-72 h-96 md:w-90 md:h-100 bg-slate/10 rounded-sm overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
-                  {/* Plxaceholder silhouette */}
-                  <div className="absolute inset-0 flex items-end justify-center pb-8">
-                    <div className="text-gold/20 text-9xl">
-                      <svg className="w-48 h-48" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                      </svg>
-                    </div>
-                  </div>
+                <div className="relative w-64 h-96 md:w-80 md:h-[30rem] bg-slate/10 rounded-sm overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+                  {/* Hero Image */}
+                  <Image
+                    src="/images/hero_image.png"
+                    alt="Yousef Rashid Al-Rashid"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                   
                   {/* Subtle overlay gradient */}
-                  <div className="absolute inset-0 bg-linear-to-t from-charcoal/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 to-transparent" />
                 </div>
 
                 {/* Corner accent */}
@@ -65,7 +66,7 @@ export default function Hero() {
             </div>
 
             {/* Right: Content */}
-            <div className="order-1 lg:order-2 flex items-center mt-12">
+            <div className="order-1 lg:order-2 flex items-center mt-36">
               <div className="w-full text-center lg:text-left">
               {/* Name */}
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gold mb-4 tracking-tight leading-tight animate-fade-in-up">
@@ -90,7 +91,7 @@ export default function Hero() {
                 <p className="text-gold text-xs uppercase tracking-widest mb-6 font-medium">
                   {pillars.title}
                 </p>
-                {pillarsList.map(({ key, label }, index) => (
+                {pillarsList.map(({ key, label }) => (
                   <div
                     key={key}
                     className="flex items-center gap-3 group mx-auto lg:mx-0 justify-center lg:justify-start hover:translate-x-2 transition-transform duration-300"
@@ -102,17 +103,29 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
+
+              {/* LinkedIn Link */}
+              <div className="animate-fade-in-up delay-500 flex justify-center lg:justify-start">
+                <a
+                  href="https://www.linkedin.com/in/yousef-al-rashid"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative inline-flex items-center gap-2 px-4 py-2 border-2 border-gold/30 bg-transparent text-gold rounded-sm text-sm font-medium overflow-hidden transition-all duration-300 hover:border-gold hover:scale-105 hover:shadow-[0_8px_20px_rgba(201,162,77,0.3)] group"
+                  style={{ transformOrigin: 'center' }}
+                >
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-charcoal flex items-center gap-2">
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    Connect on LinkedIn
+                  </span>
+                  <span className="absolute inset-0 bg-gold transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+                </a>
+              </div>
               </div>
             </div>
 
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <div className="w-5 h-8 border border-gold/40 rounded-full flex items-start justify-center p-1">
-          <div className="w-1 h-2 bg-gold/60 rounded-full" />
         </div>
       </div>
     </section>
