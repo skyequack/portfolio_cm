@@ -1,9 +1,11 @@
+import Image from 'next/image';
+
 interface ImpactCardProps {
   company: string;
   role: string;
   description: string;
   result: string;
-  index: number;
+  logo?: string;
   resultLabel?: string;
 }
 
@@ -12,7 +14,7 @@ export default function ImpactCard({
   role, 
   description, 
   result, 
-  index,
+  logo,
   resultLabel = 'Result:' 
 }: ImpactCardProps) {
   return (
@@ -21,9 +23,22 @@ export default function ImpactCard({
         
         {/* Header Section - Logo + Company Info */}
         <div className="flex gap-4 mb-6">
-          {/* Square Logo Placeholder */}
-          <div className="shrink-0 w-16 h-16 bg-gold/10 border-2 border-gold/30 flex items-center justify-center group-hover:border-gold transition-colors duration-300">
-            <span className="text-gold font-serif text-xl font-bold">{index}</span>
+          {/* Square Logo */}
+          <div className="shrink-0 w-16 h-16 bg-white border-2 border-gold/30 flex items-center justify-center group-hover:border-gold transition-colors duration-300 overflow-hidden">
+            {logo ? (
+              <div className="relative w-full h-full p-2">
+                <Image 
+                  src={logo} 
+                  alt={`${company} logo`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ) : (
+              <div className="w-full h-full bg-gold/10 flex items-center justify-center">
+                <span className="text-gold/40 font-serif text-xs">LOGO</span>
+              </div>
+            )}
           </div>
           
           {/* Company Name & Role */}
