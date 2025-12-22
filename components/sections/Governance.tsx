@@ -8,58 +8,64 @@ export default function Governance() {
     {
       company: 'Food AROMA Company',
       role: 'Chairman of the Board',
-      period: '2019–Present'
+      period: '2019-Present'
     },
     {
       company: 'Saudi Services for Electromechanical Works (SSEM)',
       role: 'Vice Chairman; Chairman, Executive Committee',
-      period: '2022–Present'
+      period: '2022-Present'
     },
     {
       company: 'Technology Investments Company',
       role: 'Board Member; Executive Committee Member',
-      period: '2022–Present'
+      period: '2022-Present'
     },
     {
       company: 'Morouj Real Estate Development Company',
       role: 'Board Member',
-      period: '2022–Present'
+      period: '2022-Present'
     },
     {
       company: 'Tabouk Fishery',
       role: 'Board Member; Executive Committee Member',
-      period: '2014–Present'
+      period: '2014-Present'
     },
     {
       company: 'Saudi Rubber Products Company',
-      role: 'Managing Director (2006–2015); Board Member',
-      period: '2015–Present'
+      role: 'Managing Director (2006-2015); Board Member',
+      period: '2015-Present'
     },
     {
       company: 'Ejar Cranes and Equipment',
       role: 'Executive Committee Member',
-      period: '2014–Present'
+      period: '2014-Present'
     },
     {
       company: 'Arabian United Float Glass Company',
       role: 'Board Member',
-      period: '2014–Present'
+      period: '2014-Present'
     },
     {
       company: 'Al Rashid Abetong',
       role: 'Board Member',
-      period: '2022–Present'
+      period: '2022-Present'
     },
     {
       company: 'Tilal Al-Khair Company',
       role: 'Owner & Board Member',
-      period: '2021–Dec 2022'
+      period: '2021-Dec 2022'
     },
     {
       company: 'Vision Bank',
       role: 'Board Member',
-      period: '2024–Present'
+      period: '2024-Present'
+    },
+    {
+      company: 'Sadara Capital',
+      role: 'Board Member',
+      period: '2025-Present'
     }
+
   ];
 
   return (

@@ -48,7 +48,7 @@ export default function Hero() {
                 <div className="relative w-72 sm:w-72 md:w-90 aspect-2/3 bg-slate/10 rounded-sm overflow-hidden transition-transform duration-500 any-group-hover:scale-[1.02]">
                   {/* Hero Image */}
                   <Image
-                    src="/images/hero_image.png"
+                    src="/images/hero_image.jpg"
                     alt="Yousef Rashid Al-Rashid"
                     fill
                     className="object-cover"
