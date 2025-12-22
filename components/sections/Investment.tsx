@@ -38,9 +38,9 @@ export default function Investment() {
           {principles.map((principle, index) => (
             <div key={index} className="flex items-start gap-4 group">
               {/* Diamond bullet */}
-              <div className="mt-2 w-3 h-3 bg-gold rotate-45 shrink-0 group-hover:scale-110 transition-transform" />
+              <div className="mt-2 w-3 h-3 bg-gold rotate-45 shrink-0 any-group-hover:scale-110 transition-transform" />
               
-              <p className="text-charcoal text-base font-medium leading-relaxed group-hover:text-gold transition-colors">
+              <p className="text-charcoal text-base font-medium leading-relaxed any-group-hover:text-gold transition-colors">
                 {principle}
               </p>
             </div>

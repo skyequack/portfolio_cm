@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+/*
+  Tailwind v4 generates `hover:` styles under `@media (hover: hover)`.
+  On some setups (touch-primary / hybrid devices, device emulation, certain remote sessions),
+  Chrome can report BOTH `(hover: hover)` and `(any-hover: hover)` as false.
+
+  Since this portfolio relies on hover affordances, these custom variants intentionally
+  emit *unconditional* `:hover` rules (no media gating).
+*/
+@custom-variant any-hover {
+  &:hover {
+    @slot;
+  }
+}
+
+@custom-variant any-group-hover {
+  &:is(:where(.group):hover *) {
+    @slot;
+  }
+}
+
 @layer base {
   :root {
     /* Primary Colors */

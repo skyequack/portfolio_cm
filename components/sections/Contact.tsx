@@ -4,6 +4,7 @@ import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Divider from '@/components/ui/Divider';
 import Button from '@/components/ui/Button';
+import Footer from '@/components/layout/Footer';
 
 export default function Contact() {
   const contact = {
@@ -14,7 +15,7 @@ export default function Contact() {
   };
 
   return (
-    <Section id="contact" background="dark" spacing="default" className="scroll-mt-20">
+    <Section id="contact" background="dark" spacing="default" className="scroll-mt-20 pb-0" fullHeight={false} enableSnap={true}>
       <div className="max-w-3xl mx-auto">
         {/* Section Title */}
         <h2 className="text-2xl md:text-3xl font-serif text-gold mb-4 text-center">
@@ -39,7 +40,7 @@ export default function Contact() {
               href="https://linkedin.com/in/yousef-rashid-al-rashid"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-charcoal hover:text-gold transition-colors font-medium underline underline-offset-4"
+              className="text-charcoal any-hover:text-gold transition-colors font-medium underline underline-offset-4"
             >
               Yousef Rashid Al-Rashid
             </a>
@@ -67,6 +68,11 @@ export default function Contact() {
         <div className="mt-12 flex justify-center">
           <div className="w-12 h-px bg-linear-to-r from-transparent via-gold/50 to-transparent" />
         </div>
+      </div>
+
+      {/* Footer combined into Contact section (full-bleed) */}
+      <div className="mt-16 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
+        <Footer />
       </div>
     </Section>
   );

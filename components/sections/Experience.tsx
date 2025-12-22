@@ -35,12 +35,12 @@ export default function Experience() {
             <div key={index} className="relative flex gap-6 group">
               {/* Timeline dot */}
               <div className="hidden md:flex items-center justify-center shrink-0">
-                <div className="w-3 h-3 bg-gold rotate-45 group-hover:scale-125 transition-transform" />
+                <div className="w-3 h-3 bg-gold rotate-45 any-group-hover:scale-125 transition-transform" />
               </div>
 
               {/* Content */}
               <div className="flex-1 ">
-                <div className="bg-ivory/50 border border-divider rounded-sm p-6 group-hover:bg-ivory group-hover:border-gold/30 transition-all">
+                <div className="bg-ivory/50 border border-divider rounded-sm p-6 any-group-hover:bg-ivory any-group-hover:border-gold/30 transition-all">
                   <p className="text-slate text-base leading-relaxed">
                     {item}
                   </p>

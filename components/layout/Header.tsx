@@ -84,7 +84,7 @@ export default function Header() {
           >
             <div className="flex items-center gap-3">
               {/* Monogram box with gold accent */}
-              <div className="relative w-16 h-16 border border-gold/40 flex items-center justify-center group-hover:border-gold transition-colors">
+              <div className="relative w-16 h-16 border border-gold/40 flex items-center justify-center any-group-hover:border-gold transition-colors">
                 <span className="text-gold text-3xl font-serif tracking-tighter">YR</span>
                 <div className="absolute -top-1 -left-1 w-2 h-2 bg-gold" />
               </div>             
@@ -109,14 +109,14 @@ export default function Header() {
                 className={`relative px-2 py-2 text-base font-serif tracking-wide transition-colors group ${
                   activeSection === id
                     ? 'text-gold'
-                    : 'text-ivory/80 hover:text-ivory'
+                    : 'text-ivory/80 any-hover:text-ivory'
                 }`}
               >
                 {label}
                 {/* Subtle gold underline on hover and when active */}
                 <span
                   className={`absolute bottom-0 left-2 right-2 h-px bg-gold transition-transform origin-left ${
-                    activeSection === id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    activeSection === id ? 'scale-x-100' : 'scale-x-0 any-group-hover:scale-x-100'
                   }`}
                 />
               </button>
@@ -157,7 +157,7 @@ export default function Header() {
                 className={`block w-full text-left px-4 py-3 text-base transition-colors border-l-2 ${
                   activeSection === id
                     ? 'text-gold bg-gold/5 border-gold'
-                    : 'text-ivory/80 hover:text-ivory hover:bg-gold/5 border-transparent hover:border-gold'
+                    : 'text-ivory/80 any-hover:text-ivory any-hover:bg-gold/5 border-transparent any-hover:border-gold'
                 }`}
               >
                 {label}

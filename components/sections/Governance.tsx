@@ -88,7 +88,7 @@ export default function Governance() {
                   {position.role}
                 </span>
               </div>
-              <div className=" md:text-right md:ml-4 flex-shrink-0" >
+              <div className=" md:text-right md:ml-4 shrink-0" >
                 <span className="text-ivory/60 text-sm">
                   ({position.period})
                 </span>

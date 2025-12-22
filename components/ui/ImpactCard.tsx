@@ -19,14 +19,14 @@ export default function ImpactCard({
 }: ImpactCardProps) {
   return (
     <div className="relative group h-full flex flex-col">
-      <div className="bg-ivory border border-divider rounded-sm shadow-sm hover:shadow-xl hover:border-gold/30 hover:-translate-y-1 transition-all duration-300 p-6 md:p-8 flex flex-col h-full">
+      <div className="bg-ivory border border-divider rounded-sm shadow-sm any-hover:shadow-xl any-hover:border-gold/30 any-hover:-translate-y-1 transition-all duration-300 p-6 md:p-8 flex flex-col h-full">
         
         {/* Header Section - Logo + Company Info */}
         <div className="flex gap-4 mb-6">
           {/* Square Logo */}
-          <div className="shrink-0 w-16 h-16 bg-white border-2 border-gold/30 flex items-center justify-center group-hover:border-gold transition-colors duration-300 overflow-hidden">
+          <div className="shrink-0 w-16 h-16 bg-white border-2 border-gold/30 flex items-center justify-center any-group-hover:border-gold transition-colors duration-300 overflow-hidden">
             {logo ? (
-              <div className="relative w-full h-full p-2">
+              <div className="relative w-full h-full m-1 md:m-1">
                 <Image 
                   src={logo} 
                   alt={`${company} logo`}
@@ -71,8 +71,8 @@ export default function ImpactCard({
         </div>
 
         {/* Decorative corner accents */}
-        <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-gold/0 group-hover:border-gold/40 transition-all duration-300" />
-        <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-gold/0 group-hover:border-gold/40 transition-all duration-300" />
+        <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-gold/0 any-group-hover:border-gold/40 transition-all duration-300" />
+        <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-gold/0 any-group-hover:border-gold/40 transition-all duration-300" />
       </div>
     </div>
   );

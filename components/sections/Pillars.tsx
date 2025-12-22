@@ -47,10 +47,10 @@ export default function Pillars() {
           {pillarsList.map((pillar, index) => (
             <div 
               key={pillar.key}
-              className="group relative bg-ivory border border-divider rounded-sm p-8 hover:border-gold/40 transition-all duration-300 hover:shadow-lg"
+              className="group relative bg-ivory border border-divider rounded-sm p-8 any-hover:border-gold/40 transition-all duration-300 any-hover:shadow-lg"
             >
               {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gold/0 group-hover:border-gold/40 transition-all" />
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gold/0 any-group-hover:border-gold/40 transition-all" />
               
               {/* Number */}
               <div className="text-gold/20 font-serif text-5xl mb-4 leading-none">
@@ -71,7 +71,7 @@ export default function Pillars() {
               </p>
 
               {/* Bottom accent */}
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gold/0 group-hover:border-gold/40 transition-all" />
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gold/0 any-group-hover:border-gold/40 transition-all" />
             </div>
           ))}
         </div>

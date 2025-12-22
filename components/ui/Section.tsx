@@ -9,6 +9,7 @@ interface SectionProps {
   background?: 'light' | 'dark' | 'sand';
   spacing?: 'compact' | 'default' | 'relaxed';
   fullHeight?: boolean;
+  enableSnap?: boolean; // Add separate snap control
 }
 
 export default function Section({ 
@@ -17,7 +18,8 @@ export default function Section({
   className = '', 
   background = 'light', 
   spacing,
-  fullHeight = true 
+  fullHeight = true,
+  enableSnap = true // Default to true to maintain snap behavior
 }: SectionProps) {
   const { elementRef, isVisible } = useFadeIn(0.15);
 
@@ -35,8 +37,11 @@ export default function Section({
 
   // Build height classes based on fullHeight prop
   const heightClasses = fullHeight 
-    ? 'min-h-screen flex items-center snap-section' 
+    ? 'min-h-screen flex items-center' 
     : '';
+
+  // Snap class is independent of height
+  const snapClass = enableSnap ? 'snap-section' : '';
 
   // Apply spacing only when NOT using fullHeight
   const appliedSpacing = fullHeight ? '' : (spacing ? spacingClasses[spacing] : spacingClasses.default);
@@ -45,7 +50,7 @@ export default function Section({
     <section 
       ref={elementRef as React.RefObject<HTMLElement>}
       id={id} 
-      className={`fade-in-section ${isVisible ? 'visible' : ''} ${appliedSpacing} ${heightClasses} ${bgClasses[background]} ${className}`}
+      className={`fade-in-section ${isVisible ? 'visible' : ''} ${appliedSpacing} ${heightClasses} ${snapClass} ${bgClasses[background]} ${className}`}
     >
       <div className={`container mx-auto w-full px-3 ${fullHeight ? 'h-full flex items-center' : ''}`}>
         {children}

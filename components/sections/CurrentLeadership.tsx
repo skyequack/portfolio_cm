@@ -55,7 +55,7 @@ export default function CurrentLeadership() {
                 <ul className="space-y-3">
                   {position.responsibilities.map((item, idx) => (
                     <li key={idx} className="flex gap-3 text-base text-slate leading-relaxed">
-                      <span className="text-gold mt-1.5 flex-shrink-0">•</span>
+                      <span className="text-gold mt-1.5 shrink-0">•</span>
                       <span>{item}</span>
                     </li>
                   ))}

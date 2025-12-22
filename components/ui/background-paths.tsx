@@ -98,7 +98,7 @@ export function BackgroundPaths({
                                             damping: 25,
                                         }}
                                         className="inline-block text-transparent bg-clip-text 
-                                        bg-gradient-to-r from-neutral-900 to-neutral-700/80 
+                                        bg-linear-to-r from-neutral-900 to-neutral-700/80 
                                         dark:from-white dark:to-white/80"
                                     >
                                         {letter}
@@ -109,9 +109,9 @@ export function BackgroundPaths({
                     </h1>
 
                     <div
-                        className="inline-block group relative bg-gradient-to-b from-black/10 to-white/10 
+                        className="inline-block group relative bg-linear-to-b from-black/10 to-white/10 
                         dark:from-white/10 dark:to-black/10 p-px rounded-2xl backdrop-blur-lg 
-                        overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                        overflow-hidden shadow-lg any-hover:shadow-xl transition-shadow duration-300"
                     >
                         
                     </div>

@@ -2,12 +2,12 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="snap-section bg-charcoal border-t border-gold/20 h-screen flex items-center">
-      <div className="container mx-auto px-6 py-16 w-full">
+    <footer className="bg-charcoal border-t border-gold/20">
+      <div className="container mx-auto px-6 py-6 md:py-8 w-full">
         <div className="max-w-7xl mx-auto">
           
           {/* Top Section */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-gold/10">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-6 border-b border-gold/10">
             
             {/* Left: Name & Monogram */}
             <div className="flex items-center gap-4">
@@ -41,7 +41,7 @@ export default function Footer() {
           </div>
 
           {/* Bottom Section - Copyright */}
-          <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="pt-4 flex flex-col md:flex-row justify-between items-center gap-3">
             <p className="text-slate/60 text-xs font-serif tracking-wider">
               {year} © Yousef Rashid Al-Rashid. All rights reserved.
             </p>
